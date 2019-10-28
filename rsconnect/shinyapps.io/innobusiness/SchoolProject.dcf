@@ -1,0 +1,12 @@
+name: SchoolProject
+title: SchoolProject
+username:
+account: innobusiness
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1387320
+bundleId: 2542227
+url: https://innobusiness.shinyapps.io/SchoolProject/
+when: 1572230209.06002
+asMultiple: FALSE
+asStatic: FALSE
