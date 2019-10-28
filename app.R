@@ -24,7 +24,7 @@ ui <- dashboardPage(skin = "green",
                                   choices = c("BEER","SPIRITS", "WINE"),
                                   selected = "WINE"),
                      selectInput("countryInput", "Country",
-                                 choices = c("CANADA", "FRANCE", "ITALY","BELGIUM","UNITED STATES OF AMERICA","PORTUGAL","NEW ZEALAND","SOUTH AFRICA","IRELAND"))
+                                 choices = c("FRANCE","CANADA",  "ITALY","BELGIUM","UNITED STATES OF AMERICA","PORTUGAL","NEW ZEALAND","SOUTH AFRICA","IRELAND"))
         
                      
             
@@ -69,7 +69,8 @@ ui <- dashboardPage(skin = "green",
                            title = "Data", width = NULL, solidHeader = TRUE, status = "primary",
                            
                            # 
-                           tableOutput("results")
+                           DT::dataTableOutput("results")
+                           # tableOutput("results")
                         ))
             ),
         
@@ -119,7 +120,8 @@ server <- function(input, output) {
             geom_histogram(colour ="blue")
     })
     
-    output$results <- renderTable({
+    output$results <- DT::renderDataTable({
+        DT::datatable(bcl, options = list(lengthMenu = c(5, 10, 50), pageLength = 5))
          filtered()
     })
     
